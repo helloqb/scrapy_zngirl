@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 # Scrapy settings for ScrapyProject project
 #
 # For simplicity, this file contains only settings considered important or
@@ -19,7 +20,7 @@ NEWSPIDER_MODULE = 'ScrapyProject.spiders'
 #USER_AGENT = 'ScrapyProject (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,10 +65,14 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'ScrapyProject.pipelines.ScrapyprojectPipeline': 300,
-#}
-
+ITEM_PIPELINES = {
+   # 'ScrapyProject.pipelines.ScrapyprojectPipeline': 300,
+   'ScrapyProject.pipelines.DefineFilePathImagesPipeline': 300,
+}
+# 图片下载设置
+IMAGES_URLS_FIELD = 'img_url'
+project_dir = os.path.abspath(os.path.dirname(__file__))
+IMAGES_STORE = os.path.join(project_dir, 'images')
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
