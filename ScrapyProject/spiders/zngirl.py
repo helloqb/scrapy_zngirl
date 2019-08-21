@@ -7,9 +7,9 @@ from urllib import parse
 
 class ZngirlSpider(scrapy.Spider):
     name = 'zngirl'
-    allowed_domains = ['nvshens.com']
+    allowed_domains = ['nvshens.net']
     # 爬虫开始地址, 女神个人主页
-    start_urls = ['https://www.nvshens.com/girl/24043/album/']
+    start_urls = ['https://www.nvshens.net/girl/21745/album/']
 
     def parse(self, response):
         post_nudes = response.css('.igalleryli')
