@@ -9,6 +9,7 @@ class ZngirlSpider(scrapy.Spider):
     name = 'zngirl'
     allowed_domains = ['nvshens.net']
     # 爬虫开始地址, 女神个人主页
+    # start_urls = ['file:////C:/Users/rui97/Desktop/1.html']
     start_urls = ['https://www.nvshens.net/girl/21745/album/']
 
     def parse(self, response):
