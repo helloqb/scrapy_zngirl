@@ -10,6 +10,3 @@
 
 # 附 Instagram 爬取
 1. 下载包 [instagram-scraper](https://github.com/rarcega/instagram-scraper)
-2. 进入包对应虚拟环境 `activate zngril`
-3. `pip install instagram-scraper --upgrade`
-4. `instagram-scraper ___yuume.18 -m 1000 -u 2510634992@qq.com -p rui.6152067`
