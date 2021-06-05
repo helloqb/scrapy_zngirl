@@ -7,12 +7,12 @@ from urllib import parse
 
 class ZngirlSpider(scrapy.Spider):
     name = 'zngirl'
-    allowed_domains = ['nvshens.net']
+    # allowed_domains = ['invshen.net']
     # 爬虫开始地址, 女神个人主页
     # start_urls = ['file:////C:/Users/rui97/Desktop/1.html']
-    start_urls = ['https://www.nvshens.net/girl/21745/album/']
+    start_urls = ['https://www.invshen.net/girl/27999/album/']
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
         post_nudes = response.css('.igalleryli')
         for post_nude in post_nudes:
             # 获取每个套图 URL
@@ -31,10 +31,11 @@ class ZngirlSpider(scrapy.Spider):
         for img_nude in img_nudes:
             img_url = img_nude.css('::attr(src)').extract_first()
             # 大图
-            img_urls.append(img_url.replace('/s', ''))
+            # img_urls.append(img_url.replace('/s', ''))
+            img_urls.append(img_url)
         img_item['title'] = title
         img_item['img_url'] = img_urls
-        img_item['referer'] = response.url
+        img_item['referer'] = 'https://www.invshen.net/'
         yield img_item
 
         # 有下一页则继续
